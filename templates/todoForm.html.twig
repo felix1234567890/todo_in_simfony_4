@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Dodaj novi zadatak na listu</h1>
+{{form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+{{form_widget(form)}}
+{{form_end(form)}}
+<a class="btn btn-info mt-1" href="/">Odustani</a>
+{% endblock %}

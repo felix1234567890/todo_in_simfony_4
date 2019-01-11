@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="card">
+  <div class="card-body text-center">
+    <h1 class="card-title">{{todo.title}}</h5>
+    <p class="card-text">{{todo.description}}</p>
+    <a href="/" class="card-link">Povratak na početnu stranicu</a>
+  </div>
+</div>
+{% endblock %}

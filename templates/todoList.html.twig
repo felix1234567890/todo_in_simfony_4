@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %} Todo List {% endblock %}
+{% block body %}
+{% if (todos) %}
+<table id="todos" class="table table-striped">
+    <thead>
+    <tr>
+    <th>Naziv zadatka</th>
+    <th>Opis zadatka</th>
+    <th>Više</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for todo in todos %}
+    <tr>
+    <td/>{{todo.title}}</td>
+    <td/>{{todo.description}}</td>
+    <td><a href='/todo/{{todo.id}}' class="btn btn-primary">Detalji</a>
+    </td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h3>No todos to show</h3>
+{% endif %}
+{% endblock %}
