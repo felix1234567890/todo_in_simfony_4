@@ -7,7 +7,9 @@
     <tr>
     <th>Naziv zadatka</th>
     <th>Opis zadatka</th>
-    <th>Više</th>
+    <th>Rok izvršenja</th>
+    <th>Težina</th>
+    <th>Opcije</th>
     </tr>
     </thead>
     <tbody>
@@ -15,7 +17,12 @@
     <tr>
     <td/>{{todo.title}}</td>
     <td/>{{todo.description}}</td>
-    <td><a href='/todo/{{todo.id}}' class="btn btn-primary">Detalji</a>
+    <td/>{{todo.Duedate.format('d/m/Y')}}</td>
+    <td/>{{todo.Difficulty}}</td>
+    <td>
+    <a href='/todo/{{todo.id}}' class="btn btn-primary">Detalji</a>
+    <a href={{path('edit',{id:todo.id})}} class="btn btn-info">Uredi</a>
+    <form method="post" action={{path('delete',{id:todo.id})}} style="display:inline-block"><input type="hidden" name="_method" value="DELETE"><button class="btn btn-danger">Izbriši</button></form>
     </td></tr>
     {% endfor %}
     </tbody>
