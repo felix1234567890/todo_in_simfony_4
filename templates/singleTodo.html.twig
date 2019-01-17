@@ -3,7 +3,10 @@
 <div class="card">
   <div class="card-body text-center">
     <h1 class="card-title">{{todo.title}}</h5>
-    <p class="card-text">{{todo.description}}</p>
+    <p class="card-text">Opis: {{todo.description}}</p>
+    <p class="text-muted text-center">Rok izvršenja: {{todo.duedate.format('d/m/Y')}}</p>
+    <p class="text-muted text-center">Težina: {{todo.difficulty}}</p>
+
     <a href="/" class="card-link">Povratak na početnu stranicu</a>
   </div>
 </div>

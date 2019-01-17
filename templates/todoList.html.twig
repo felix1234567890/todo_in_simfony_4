@@ -1,12 +1,27 @@
 {% extends 'base.html.twig' %}
 {% block title %} Todo List {% endblock %}
+{% block stylesheets %}
+<style>
+.bar-chart {
+    background-color: #5eb0d6
+}
+.bar {
+    fill:#a54fa8
+}
+#pie {
+    margin-top:10px
+}
+.arc {font: 10px sans-serif;
+  text-anchor: middle;}
+</style>
+{% endblock %}
 {% block body %}
 {% if (todos) %}
-<table id="todos" class="table table-striped">
+<table class="table table-striped">
     <thead>
     <tr>
     <th>Naziv zadatka</th>
-    <th>Opis zadatka</th>
+    {# <th>Opis zadatka</th> #}
     <th>Rok izvršenja</th>
     <th>Težina</th>
     <th>Opcije</th>
@@ -16,7 +31,7 @@
     {% for todo in todos %}
     <tr>
     <td/>{{todo.title}}</td>
-    <td/>{{todo.description}}</td>
+    {# <td/>{{todo.description}}</td> #}
     <td/>{{todo.Duedate.format('d/m/Y')}}</td>
     <td/>{{todo.Difficulty}}</td>
     <td>
@@ -27,7 +42,26 @@
     {% endfor %}
     </tbody>
 </table>
+<div class="row">
+<div class="col-md-8 offset-md-2">
+<svg></svg>
+<div id="pie"></div>
+<div id="pie2"></div>
+</div>
+</div>
+
 {% else %}
 <h3>No todos to show</h3>
+<div class="row">
+<div class="col-md-8 offset-md-2">
+<svg></svg>
+<div id="pie"></div>
+<div id="pie2"></div>
+</div>
+</div>
 {% endif %}
+{% endblock %}
+{% block javascripts %}
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script src="/index.js"></script>
 {% endblock %}
